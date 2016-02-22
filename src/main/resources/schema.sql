@@ -1,0 +1,15 @@
+DROP TABLE IF EXISTS lame_vids;
+DROP TABLE IF EXISTS genres;
+
+CREATE TABLE genres (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    label VARCHAR(255) NOT NULL UNIQUE
+);
+
+CREATE TABLE lame_vids (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    title VARCHAR(255) NOT NULL,
+    uri VARCHAR(255) NOT NULL,
+    genre_id INT NOT NULL,
+    FOREIGN KEY (genre_id) REFERENCES genres(id)
+);
