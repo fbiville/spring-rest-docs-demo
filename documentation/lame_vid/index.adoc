@@ -1,0 +1,75 @@
+== Lame vid API
+
+=== Definition
+
+[quote, Urban Dictionary, http://www.urbandictionary.com/define.php?term=Lame]
+just plain stupid, un-original, or lifeless. barbed wire tattoos, butterflies, and tribal tattoos are lame, they say a lot about the person who gets them.
+
+Vid is just a short name for video.
+
+=== Usage
+
+You can retrieve all genres by simply calling as follows:
+
+```shell
+$> curl http://localhost:8080/lame-vids
+{
+  "_embedded" : {
+    "lame-vids" : [ {
+      "title" : "The Final Countdown",
+      "uri" : "https://www.youtube.com/watch?v=XAg5KjnAhuU",
+      "_links" : {
+        "self" : {
+          "href" : "http://localhost:8080/lame-vids/1"
+        },
+        "lameVid" : {
+    [...]
+```
+
+You can also control the paging as follows:
+
+```shell
+$> curl http://localhost:8080/genres?page=1&size=1
+curl http://localhost:8080/lame-vids\?page\=1\&size\=1
+{
+  "_embedded" : {
+    "lame-vids" : [ {
+      "title" : "Summertime Is Great",
+      "uri" : "https://www.youtube.com/watch?v=k21nZsf6kHM",
+      "_links" : {
+        "self" : {
+          "href" : "http://localhost:8080/lame-vids/2"
+        },
+        "lameVid" : {
+          "href" : "http://localhost:8080/lame-vids/2"
+        },
+        "genre" : {
+          "href" : "http://localhost:8080/lame-vids/2/genre"
+        }
+      }
+    } ]
+  },
+  "_links" : {
+    "first" : {
+      "href" : "http://localhost:8080/lame-vids?page=0&size=1"
+    },
+    [...]
+    "search" : {
+      "href" : "http://localhost:8080/lame-vids/search"
+    }
+  },
+  "page" : {
+    "size" : 1,
+    "totalElements" : 5,
+    "totalPages" : 5,
+    "number" : 1
+  }
+}
+```
+<<<
+include::../_includes/paging_notice.adoc[]
+<<<
+
+You can find lame vids by matching genre or exact title as well
+but given this is a static documentation, the author decided it was
+too tiresome to write actual examples!

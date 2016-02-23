@@ -1,0 +1,30 @@
+= What The Tube API Handbook
+
+:toc: right
+:toc-title: What The Tube API
+:icons: font
+:source-highlighter: pygments
+:data-uri:
+:revnumber: {version}
+
+== Webcast
+
+video::X01gljXwTeQ[youtube,start=4,options="nocontrols,autoplay,loop,modestbranding"]
+
+== Architecture
+
+[plantuml,auth-protocol]
+....
+You -> We: Request for a lame vid
+We --> You: Respond with a lame vid
+....
+
+== Target audience
+
+This API handbook targets first and foremost developers in charge of integration our neat API.
+
+<<<
+include::genre/index.adoc[]
+<<<
+include::lame_vid/index.adoc[]
+<<<
