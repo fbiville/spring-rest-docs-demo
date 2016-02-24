@@ -9,58 +9,17 @@ A kind; a stylistic category or sort, especially of literature or other artworks
 
 You can retrieve all genres by simply calling as follows:
 
-```shell
-$> curl http://localhost:8080/genres
-{
-  "_embedded" : {
-    "genres" : [ {
-      "label" : "Epic",
-      "_links" : {
-        "self" : {
-          "href" : "http://localhost:8080/genres/1"
-        },
-        "genre" : {
-          "href" : "http://localhost:8080/genres/1"
-        }
-      }
-    }
-    [...]
-```
+[source,java]
+--
+include::{documentationTestDir}/GenreApiTest.java[tags=_1_All_Genres, indent=3]
+--
 
 You can also control the paging as follows:
 
-```shell
-$> curl http://localhost:8080/genres?page=1&size=1
-{
-  "_embedded" : {
-    "genres" : [ {
-      "label" : "Lame",
-      "_links" : {
-        "self" : {
-          "href" : "http://localhost:8080/genres/2"
-        },
-        "genre" : {
-          "href" : "http://localhost:8080/genres/2"
-        }
-      }
-    } ]
-  },
-  "_links" : {
-    "first" : {
-      "href" : "http://localhost:8080/genres?page=0&size=1"
-    },
-    "prev" : {
-      "href" : "http://localhost:8080/genres?page=0&size=1"
-    },
-    [...]
-  },
-  "page" : {
-    "size" : 1,
-    "totalElements" : 3,
-    "totalPages" : 3,
-    "number" : 1
-  }
-```
+[source,java]
+--
+include::{documentationTestDir}/GenreApiTest.java[tags=_2_All_Genres_Per_Page, indent=3]
+--
 
 <<<
 include::../_includes/paging_notice.adoc[]

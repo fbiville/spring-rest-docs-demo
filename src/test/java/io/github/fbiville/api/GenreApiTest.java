@@ -32,6 +32,7 @@ public class GenreApiTest {
 
     @Test
     public void finds_all_genres() throws Exception {
+        // tag::_1_All_Genres[]
         String response = client.perform(get("/genres"))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType("application/hal+json"))
@@ -43,10 +44,12 @@ public class GenreApiTest {
                 .containsOnlyOnce("\"label\" : \"Epic\"")
                 .containsOnlyOnce("\"label\" : \"Lame\"")
                 .containsOnlyOnce("\"label\" : \"Super epic\"");
+        // end::_1_All_Genres[]
     }
 
     @Test
     public void finds_all_genres_per_page() throws Exception {
+        // tag::_2_All_Genres_Per_Page[]
         String response = client.perform(get("/genres?page=1&size=1"))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType("application/hal+json"))
@@ -58,5 +61,6 @@ public class GenreApiTest {
                 .containsOnlyOnce("\"label\" : \"Lame\"")
                 .containsOnlyOnce("\"totalPages\" : 3")
                 .containsOnlyOnce("\"number\" : 1");
+        // end::_2_All_Genres_Per_Page[]
     }
 }

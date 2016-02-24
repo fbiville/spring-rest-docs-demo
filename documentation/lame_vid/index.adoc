@@ -11,65 +11,32 @@ Vid is just a short name for video.
 
 You can retrieve all genres by simply calling as follows:
 
-```shell
-$> curl http://localhost:8080/lame-vids
-{
-  "_embedded" : {
-    "lame-vids" : [ {
-      "title" : "The Final Countdown",
-      "uri" : "https://www.youtube.com/watch?v=XAg5KjnAhuU",
-      "_links" : {
-        "self" : {
-          "href" : "http://localhost:8080/lame-vids/1"
-        },
-        "lameVid" : {
-    [...]
-```
+[source,java]
+--
+include::{documentationTestDir}/LameVidApiTest.java[tags=_1_All_Vids, indent=3]
+--
 
 You can also control the paging as follows:
 
-```shell
-$> curl http://localhost:8080/genres?page=1&size=1
-curl http://localhost:8080/lame-vids\?page\=1\&size\=1
-{
-  "_embedded" : {
-    "lame-vids" : [ {
-      "title" : "Summertime Is Great",
-      "uri" : "https://www.youtube.com/watch?v=k21nZsf6kHM",
-      "_links" : {
-        "self" : {
-          "href" : "http://localhost:8080/lame-vids/2"
-        },
-        "lameVid" : {
-          "href" : "http://localhost:8080/lame-vids/2"
-        },
-        "genre" : {
-          "href" : "http://localhost:8080/lame-vids/2/genre"
-        }
-      }
-    } ]
-  },
-  "_links" : {
-    "first" : {
-      "href" : "http://localhost:8080/lame-vids?page=0&size=1"
-    },
-    [...]
-    "search" : {
-      "href" : "http://localhost:8080/lame-vids/search"
-    }
-  },
-  "page" : {
-    "size" : 1,
-    "totalElements" : 5,
-    "totalPages" : 5,
-    "number" : 1
-  }
-}
-```
+[source,java]
+--
+include::{documentationTestDir}/LameVidApiTest.java[tags=_2_All_Vids_Per_Page, indent=3]
+--
+
 <<<
 include::../_includes/paging_notice.adoc[]
 <<<
 
-You can find lame vids by matching genre or exact title as well
-but given this is a static documentation, the author decided it was
-too tiresome to write actual examples!
+You can find lame vids by matching genre:
+
+[source,java]
+--
+include::{documentationTestDir}/LameVidApiTest.java[tags=_3_Vids_By_Genre, indent=3]
+--
+
+Or exact title as well:
+
+[source,java]
+--
+include::{documentationTestDir}/LameVidApiTest.java[tags=_4_Vids_By_Title, indent=3]
+--

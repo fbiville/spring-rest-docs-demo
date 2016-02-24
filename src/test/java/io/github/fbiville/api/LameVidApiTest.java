@@ -32,6 +32,7 @@ public class LameVidApiTest {
 
     @Test
     public void finds_all_vids() throws Exception {
+        // tag::_1_All_Vids[]
         String response = client.perform(get("/lame-vids"))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType("application/hal+json"))
@@ -45,10 +46,12 @@ public class LameVidApiTest {
                 .containsOnlyOnce("\"title\" : \"J.-M. VdC\"")
                 .containsOnlyOnce("\"title\" : \"Joli Dauphin\"")
                 .containsOnlyOnce("\"title\" : \"I Get Around\"");
+        // end::_1_All_Vids[]
     }
 
     @Test
     public void finds_all_vids_per_page() throws Exception {
+        // tag::_2_All_Vids_Per_Page[]
         String response = client.perform(get("/lame-vids?page=1&size=1"))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType("application/hal+json"))
@@ -58,10 +61,12 @@ public class LameVidApiTest {
 
         assertThat(response)
                 .containsOnlyOnce("\"title\" : \"Summertime Is Great\"");
+        // end::_2_All_Vids_Per_Page[]
     }
 
     @Test
     public void finds_all_vids_by_matching_genre_label() throws Exception {
+        // tag::_3_Vids_By_Genre[]
         String response = client.perform(get("/lame-vids/search/genre?genre=epic&sort=asc"))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType("application/hal+json"))
@@ -74,10 +79,12 @@ public class LameVidApiTest {
                     "\"title\" : \"The Final Countdown\"",
                     "\"title\" : \"J.-M. VdC\""
                 );
+        // end::_3_Vids_By_Genre[]
     }
 
     @Test
     public void finds_all_vids_by_title() throws Exception {
+        // tag::_4_Vids_By_Title[]
         String response = client.perform(get("/lame-vids/search/title?title=The Final Countdown"))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType("application/hal+json"))
@@ -89,5 +96,6 @@ public class LameVidApiTest {
                 .containsSequence(
                         "\"title\" : \"The Final Countdown\""
                 );
+        // end::_4_Vids_By_Title[]
     }
 }

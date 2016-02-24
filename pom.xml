@@ -92,6 +92,7 @@
 					<outputDirectory>${documentation.output.dir}</outputDirectory>
 					<sourceHighlighter>coderay</sourceHighlighter>
 					<attributes>
+						<documentationTestDir>${project.build.testSourceDirectory}/io/github/fbiville/api</documentationTestDir>
 						<icons>font</icons>
 						<imagesdir>${documentation.output.dir}/images</imagesdir>
 						<pagenums />
