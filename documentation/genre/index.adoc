@@ -7,19 +7,34 @@ A kind; a stylistic category or sort, especially of literature or other artworks
 
 === Usage
 
+==== All genres
+
 You can retrieve all genres by simply calling as follows:
 
-[source,java]
---
-include::{documentationTestDir}/GenreApiTest.java[tags=_1_All_Genres, indent=3]
---
+<<<
+include::{snippets}/all_genres/curl-request.adoc[]
+<<<
+
+And get the following response:
+
+<<<
+include::{snippets}/all_genres/http-response.adoc[]
+<<<
+
+
+==== All genres, paged
 
 You can also control the paging as follows:
 
-[source,java]
---
-include::{documentationTestDir}/GenreApiTest.java[tags=_2_All_Genres_Per_Page, indent=3]
---
+<<<
+include::{snippets}/all_genres_per_page/curl-request.adoc[]
+<<<
+
+And get the following response:
+
+<<<
+include::{snippets}/all_genres_per_page/http-response.adoc[]
+<<<
 
 <<<
 include::../_includes/paging_notice.adoc[]

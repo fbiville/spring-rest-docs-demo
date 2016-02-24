@@ -23,6 +23,7 @@
 		<java.version>1.8</java.version>
 		<documentation.input.dir>${project.basedir}/documentation</documentation.input.dir>
 		<documentation.output.dir>${project.build.outputDirectory}/public</documentation.output.dir>
+		<documentation.snippets.dir>${project.build.directory}/snippets</documentation.snippets.dir>
 	</properties>
 
 	<dependencies>
@@ -52,6 +53,12 @@
 			<version>3.3.0</version>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+			<groupId>org.springframework.restdocs</groupId>
+			<artifactId>spring-restdocs-mockmvc</artifactId>
+			<version>1.0.1.RELEASE</version>
+			<scope>test</scope>
+		</dependency>
 	</dependencies>
 	
 	<build>
@@ -74,7 +81,7 @@
 				<executions>
 					<execution>
 						<id>generate-html-technical-documentation</id>
-						<phase>compile</phase>
+						<phase>prepare-package</phase>
 						<goals>
 							<goal>process-asciidoc</goal>
 						</goals>
@@ -92,16 +99,15 @@
 					<outputDirectory>${documentation.output.dir}</outputDirectory>
 					<sourceHighlighter>coderay</sourceHighlighter>
 					<attributes>
-						<documentationTestDir>${project.build.testSourceDirectory}/io/github/fbiville/api</documentationTestDir>
 						<icons>font</icons>
 						<imagesdir>${documentation.output.dir}/images</imagesdir>
 						<pagenums />
+						<snippets>${documentation.snippets.dir}</snippets>
 						<toc>right</toc>
 						<version>${project.version}</version>
 					</attributes>
 				</configuration>
 			</plugin>
-
 		</plugins>
 	</build>
 </project>

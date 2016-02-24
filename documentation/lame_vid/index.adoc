@@ -9,34 +9,65 @@ Vid is just a short name for video.
 
 === Usage
 
-You can retrieve all genres by simply calling as follows:
+==== All lame videos
 
-[source,java]
---
-include::{documentationTestDir}/LameVidApiTest.java[tags=_1_All_Vids, indent=3]
---
+You can retrieve all lame videos by simply calling as follows:
+
+
+<<<
+include::{snippets}/all_vids/curl-request.adoc[]
+<<<
+
+And get the following response:
+
+
+<<<
+include::{snippets}/all_vids/http-response.adoc[]
+<<<
+
+
+==== All lame videos, paged
 
 You can also control the paging as follows:
 
-[source,java]
---
-include::{documentationTestDir}/LameVidApiTest.java[tags=_2_All_Vids_Per_Page, indent=3]
---
 
 <<<
-include::../_includes/paging_notice.adoc[]
+include::{snippets}/all_vids_per_page/curl-request.adoc[]
 <<<
+
+And get the following response:
+
+<<<
+include::{snippets}/all_vids_per_page/http-response.adoc[]
+<<<
+
+
+==== Lame videos by genre
 
 You can find lame vids by matching genre:
 
-[source,java]
---
-include::{documentationTestDir}/LameVidApiTest.java[tags=_3_Vids_By_Genre, indent=3]
---
+
+<<<
+include::{snippets}/vids_by_genre/curl-request.adoc[]
+<<<
+
+And get the following response:
+
+<<<
+include::{snippets}/vids_by_genre/http-response.adoc[]
+<<<
+
+
+==== Lame videos by exact title
 
 Or exact title as well:
 
-[source,java]
---
-include::{documentationTestDir}/LameVidApiTest.java[tags=_4_Vids_By_Title, indent=3]
---
+<<<
+include::{snippets}/vids_by_title/curl-request.adoc[]
+<<<
+
+And get the following response:
+
+<<<
+include::{snippets}/vids_by_title/http-response.adoc[]
+<<<
