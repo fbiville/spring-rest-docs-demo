@@ -9,6 +9,12 @@ Vid is just a short name for video.
 
 === Usage
 
+==== Response attributes
+
+<<<
+include::{snippets}/all_vids/response-fields.adoc[]
+<<<
+
 ==== All lame videos
 
 You can retrieve all lame videos by simply calling as follows:

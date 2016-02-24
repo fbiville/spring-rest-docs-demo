@@ -7,6 +7,12 @@ A kind; a stylistic category or sort, especially of literature or other artworks
 
 === Usage
 
+==== Response attributes
+
+<<<
+include::{snippets}/all_genres/response-fields.adoc[]
+<<<
+
 ==== All genres
 
 You can retrieve all genres by simply calling as follows:

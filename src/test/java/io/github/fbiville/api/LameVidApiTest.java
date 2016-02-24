@@ -17,6 +17,8 @@ import org.springframework.web.context.WebApplicationContext;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.springframework.restdocs.mockmvc.MockMvcRestDocumentation.document;
 import static org.springframework.restdocs.mockmvc.MockMvcRestDocumentation.documentationConfiguration;
+import static org.springframework.restdocs.payload.PayloadDocumentation.fieldWithPath;
+import static org.springframework.restdocs.payload.PayloadDocumentation.responseFields;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -42,7 +44,12 @@ public class LameVidApiTest {
         String response = client.perform(get("/lame-vids"))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType("application/hal+json"))
-                .andDo(document("all_vids"))
+                .andDo(document("all_vids", responseFields(
+                        fieldWithPath("_links").ignored(),
+                        fieldWithPath("page").ignored(),
+                        fieldWithPath("_embedded.lame-vids[].title").description("Lame vid title (duh!)"),
+                        fieldWithPath("_embedded.lame-vids[].uri").description("Lame vid URI (duh!)"),
+                        fieldWithPath("_embedded").ignored())))
                 .andReturn()
                 .getResponse()
                 .getContentAsString();
